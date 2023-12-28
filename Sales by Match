@@ -16,7 +16,16 @@ import sys
 #
 
 def sockMerchant(n, ar):
-    # Write your code here
+    newdict = {}
+    for i in range(len(ar)):
+        if ar[i] not in newdict:
+            newdict[ar[i]] = 1
+        else:
+            newdict[ar[i]] += 1
+    pairs = 0
+    for count in newdict.values():
+        pairs += count // 2
+    return pairs
 
 if __name__ == '__main__':
     fptr = open(os.environ['OUTPUT_PATH'], 'w')
